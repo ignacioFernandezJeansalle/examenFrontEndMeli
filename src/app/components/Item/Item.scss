@@ -1,0 +1,49 @@
+@import "../../styles/variables";
+
+$p-top-text: 16px;
+
+.item {
+  background: #fff;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  padding: 16px;
+  text-decoration: none;
+
+  &__thumbnail {
+    border-radius: 4px;
+  }
+
+  &__info {
+    &-container {
+      padding-top: $p-top-text;
+      display: flex;
+      flex-direction: column;
+      row-gap: 32px;
+    }
+
+    &-price {
+      display: flex;
+      column-gap: 8px;
+      align-items: center;
+
+      &-value {
+        font-size: 24pt;
+        color: $font-color-max;
+        font-weight: normal;
+      }
+
+      &-icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &-title {
+      font-size: 18pt;
+      color: $font-color-max;
+      font-weight: normal;
+    }
+  }
+}

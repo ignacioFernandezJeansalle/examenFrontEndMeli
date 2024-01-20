@@ -1,5 +1,10 @@
 import { Inter } from "next/font/google";
-import "./globals.scss";
+import Link from "next/link";
+import Image from "next/image";
+import headerLogo from "../../public/Logo_ML.webp";
+
+import SearchBox from "./components/SearchBox/SearchBox";
+import "./styles/globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,9 +18,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body className={inter.className}>
-        <header>Header</header>
-        {children}
-        <footer>Footer</footer>
+        <header className="header">
+          <nav className="nav-container container">
+            <Link className="nav-logo__container" href="/">
+              <Image className="nav-logo__image" src={headerLogo} alt="Logo Mercado Libre" />
+            </Link>
+            <SearchBox />
+          </nav>
+        </header>
+        <main className="container">{children}</main>
       </body>
     </html>
   );

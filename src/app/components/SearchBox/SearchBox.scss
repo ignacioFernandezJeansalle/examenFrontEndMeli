@@ -1,0 +1,34 @@
+.form-search {
+  display: flex;
+  column-gap: 2px;
+  align-items: center;
+  background: #eeeeee;
+  flex-grow: 1;
+  //width: 100%;
+}
+
+.search {
+  &-label {
+    display: none;
+  }
+
+  &-input {
+    font-size: 18pt;
+    padding: 12px;
+    border: none;
+    width: 100%;
+  }
+
+  &-button {
+    width: 48px;
+    height: 48px;
+    border: none;
+
+    &-icon {
+      display: block;
+      width: 24px;
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+}
