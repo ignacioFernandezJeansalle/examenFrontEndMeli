@@ -6,7 +6,24 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 npm install --save-dev sass
 ```
 
+## Server Express
+
+```bash
+npm init
+npm install express
+npm install --save-dev nodemon
+```
+
+/server/package.json
+
+Crear dentro de "scripts"
+"dev": "nodemon index"
+
 ## Getting Started
+
+```bash
+npm install --save-dev sass
+```
 
 First, run the development server:
 
