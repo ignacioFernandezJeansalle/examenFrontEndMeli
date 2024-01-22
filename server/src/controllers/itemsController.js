@@ -1,17 +1,22 @@
 const itemsService = require("../services/itemsService");
 
+/*****************/
+/* Item by query */
+/*****************/
 const getItemsByQuery = async (req, res) => {
+  const query = req.query.q;
+  const PATH = `https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=4`;
+
   //------------------------------------------
   // Consulta a la API de MercadoLibre x QUERY
   //------------------------------------------
-  const query = req.query.q;
-  const resQuery = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=4`);
+  const resQuery = await fetch(PATH);
   const dataQuery = await resQuery.json();
 
   //-------------------------------------
   // Inicio respuesta con firma del autor
   //-------------------------------------
-  const response = itemsService.getAuthor();
+  const author = itemsService.getAuthor();
 
   //-------------------------------------------------------------------
   // Consulta a la API de MercadoLibre x Categoría del primer resultado
@@ -28,12 +33,39 @@ const getItemsByQuery = async (req, res) => {
   //----------------------------------
   const dataItems = itemsService.getItems(dataQuery.results);
 
-  res.json({ ...response, categories: categories, items: dataItems, ...dataQuery });
-  //res.json({ items: dataItems });
+  res.json({ ...author, categories: categories, items: dataItems });
 };
 
-const getItemById = (req, res) => {
-  res.send(`<h1>Respuesta a query /api/items/${req.params.id}</h1>`);
+/**************/
+/* Item by id */
+/**************/
+const getItemById = async (req, res) => {
+  const queryById = req.params.id;
+  const PATH = `https://api.mercadolibre.com/items/${queryById}`;
+
+  //---------------------------------------
+  // Consulta a la API de MercadoLibre x Id
+  //---------------------------------------
+  const resQueryById = await fetch(PATH);
+  const dataQueryById = await resQueryById.json();
+
+  //-----------------------------------------------------
+  // Consulta a la API de MercadoLibre x Descricpión x Id
+  //-----------------------------------------------------
+  const resQueryDescById = await fetch(`${PATH}/description`);
+  const dataQueryDescById = await resQueryDescById.json();
+
+  //-------------------------------------
+  // Inicio respuesta con firma del autor
+  //-------------------------------------
+  const author = itemsService.getAuthor();
+
+  //------------------------------
+  // Obtengo los detalles del item
+  //------------------------------
+  const dataItem = itemsService.getItem(dataQueryById, dataQueryDescById);
+
+  res.json({ ...author, item: dataItem });
 };
 
 module.exports = {
