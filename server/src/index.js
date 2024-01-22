@@ -1,15 +1,11 @@
 const express = require("express");
-const v1Router = require("./v1/routes");
+const itemsRouter = require("./routes/itemsRoutes");
 
 const app = express();
 const PORT = 3000;
 
-app.use("/api", v1Router);
-/*
-app.get("/", (req, res) => {
-  res.status(200).send("<h1>Respuesta a /</h1>");
-});
-*/
+app.use("/api/items", itemsRouter);
+
 app.use((req, res) => {
   res.status(404).send("<h1>404</h1>");
 });
