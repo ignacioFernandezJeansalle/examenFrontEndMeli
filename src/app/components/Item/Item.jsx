@@ -16,22 +16,22 @@ export default function Item({ item }) {
         <div className="items-list-item__thumbnail-container">
           <Image className="items-list-item__thumbnail" src={item.picture} width={180} height={180} alt={item.title} />
         </div>
-        <div className="items-list-item__details-container">
-          <div className="items-list-item__details-price">
-            <span>{currency}</span>
-            <span>{amount}</span>
-            {item.free_shipping && (
-              <Image
-                className="items-list-item__details-shipping"
-                src={ShippingIcon}
-                alt="Icono de aviso de entrega gratuita"
-              />
-            )}
-          </div>
-          <h2 className="items-list-item__details-title">{item.title}</h2>
-        </div>
-        <p className="items-list-item__condition">{condition}</p>
       </Link>
+      <div className="items-list-item__details-container">
+        <div className="items-list-item__details-price">
+          <span>{currency}</span>
+          <span>{amount}</span>
+          {item.free_shipping && (
+            <Image
+              className="items-list-item__details-shipping"
+              src={ShippingIcon}
+              alt="Icono de aviso de entrega gratuita"
+            />
+          )}
+        </div>
+        <h2 className="items-list-item__details-title">{item.title}</h2>
+      </div>
+      <p className="items-list-item__condition">{condition}</p>
     </li>
   );
 }

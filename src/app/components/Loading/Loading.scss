@@ -1,0 +1,29 @@
+@import "../../styles/variables";
+
+.loading {
+  &__container {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__spinner {
+    width: 50px;
+    height: 50px;
+    border: 2px solid;
+    border-color: $loading-color transparent $loading-color transparent;
+    border-radius: 50%;
+    animation: spin-anim 1.2s linear infinite;
+  }
+}
+
+@keyframes spin-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

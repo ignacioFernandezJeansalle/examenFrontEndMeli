@@ -1,6 +1,7 @@
 "use client";
 
 import { useFetch } from "../customHooks/useFetch";
+import Loading from "../components/Loading/Loading";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import ItemsList from "../components/ItemsList/ItemsList";
 
@@ -11,11 +12,11 @@ export default function Items({ searchParams }) {
   return (
     <section>
       {loading ? (
-        <h1>CARGANDO</h1>
+        <Loading />
       ) : (
         <>
-          <h1>{search}</h1>
-          <Breadcrumb />
+          <h1 className="visually-hidden">{search}</h1>
+          <Breadcrumb categories={data.categories} />
           <ItemsList itemsList={data.items} />
         </>
       )}

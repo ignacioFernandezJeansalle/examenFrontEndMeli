@@ -1,3 +1,3 @@
 export default function Home() {
-  return null;
+  return <h1 className="visually-hidden">Mercado Libre</h1>;
 }

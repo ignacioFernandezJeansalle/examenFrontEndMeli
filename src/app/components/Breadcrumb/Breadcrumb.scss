@@ -1,0 +1,29 @@
+$gap-value: 6px;
+
+.breadcrumb {
+  &__container {
+    display: flex;
+    column-gap: $gap-value;
+    margin-block: 16px;
+    list-style: none;
+  }
+
+  &__container > li:last-child > .breadcrumb__category-separator {
+    display: none;
+  }
+
+  &__category {
+    display: flex;
+    column-gap: $gap-value;
+    align-items: center;
+
+    &-value {
+      font-size: 14px;
+    }
+
+    &-separator {
+      width: 14px;
+      height: auto;
+    }
+  }
+}

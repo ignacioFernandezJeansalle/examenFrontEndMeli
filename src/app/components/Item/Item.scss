@@ -6,13 +6,10 @@ $p-top-text: 32px;
   &__container {
     display: flex;
     width: 100%;
+    background: #fff;
   }
 
   &__link {
-    background: #fff;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
     border-radius: 2px;
     text-decoration: none;
   }
@@ -58,6 +55,7 @@ $p-top-text: 32px;
 
     &-title {
       font-size: 18px;
+      font-weight: 400;
       padding-top: 32px;
       text-wrap: balance;
     }
@@ -67,7 +65,7 @@ $p-top-text: 32px;
     font-size: 12px;
     padding-top: $p-top-text;
     margin-left: auto;
-
     min-width: 150px;
+    color: $font-color-min;
   }
 }
