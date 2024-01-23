@@ -2,11 +2,13 @@ import { Roboto_Flex } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import headerLogo from "../../public/Logo_ML.webp";
-
 import SearchBox from "./components/SearchBox/SearchBox";
 import "./styles/globals.scss";
 
-const robotoFlex = Roboto_Flex({ subsets: ["latin"] });
+const robotoFlex = Roboto_Flex({
+  subsets: ["latin"],
+  variable: "--font-roboto-flex",
+});
 
 export const metadata = {
   title: "Mercado Libre Argentina - Envíos Gratis en el día",
@@ -19,9 +21,9 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body className={robotoFlex.className}>
         <header className="header">
-          <nav className="nav-container container">
-            <Link className="nav-logo__container" href="/">
-              <Image className="nav-logo__image" src={headerLogo} alt="Logo Mercado Libre" />
+          <nav className="header__nav-container container">
+            <Link className="header__nav-logo" href="/">
+              <Image className="header__nav-image" src={headerLogo} alt="Logo Mercado Libre" />
             </Link>
             <SearchBox />
           </nav>

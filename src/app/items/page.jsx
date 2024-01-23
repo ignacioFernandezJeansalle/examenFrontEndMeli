@@ -3,7 +3,7 @@
 import { useFetch } from "../customHooks/useFetch";
 import Loading from "../components/Loading/Loading";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
-import ItemsList from "../components/ItemsList/ItemsList";
+import ItemsListContainer from "../components/ItemsListContainer/ItemsListContainer";
 
 export default function Items({ searchParams }) {
   const { search } = searchParams;
@@ -17,7 +17,7 @@ export default function Items({ searchParams }) {
         <>
           <h1 className="visually-hidden">{search}</h1>
           <Breadcrumb categories={data.categories} />
-          <ItemsList itemsList={data.items} />
+          <ItemsListContainer itemsList={data.items} />
         </>
       )}
     </section>

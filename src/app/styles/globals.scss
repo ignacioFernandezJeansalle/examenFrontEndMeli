@@ -17,32 +17,13 @@ body {
 
 form input {
   color: $form-input-color;
-}
-
-.header {
-  background: $color-primary;
+  font-family: var(--font-roboto-mono);
 }
 
 .container {
   max-width: $max-width-xl;
   margin: 0 auto;
   padding-inline: calc($max-width-xl/12);
-}
-
-.nav {
-  &-container {
-    padding-block: 8px 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    column-gap: 24px;
-  }
-
-  &-logo__image {
-    display: block;
-    width: auto;
-    height: 48px;
-  }
 }
 
 .visually-hidden {
@@ -54,4 +35,24 @@ form input {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.header {
+  background: $color-primary;
+
+  &__nav {
+    &-container {
+      padding-block: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 24px;
+    }
+
+    &-image {
+      display: block;
+      width: auto;
+      height: 40px;
+    }
+  }
 }

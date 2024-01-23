@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import ShippingIcon from "../../assets/icons/ShippingIcon.webp";
-import "./Item.scss";
+import "./ItemList.scss";
 
-export default function Item({ item }) {
+export default function ItemList({ item }) {
   const amount = Intl.NumberFormat("es-AR").format(item.price.amount);
   const currency = item.price.currency === "USD" ? "U$S" : "$";
   let condition = "";
