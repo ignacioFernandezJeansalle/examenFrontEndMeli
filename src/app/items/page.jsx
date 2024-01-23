@@ -1,7 +1,15 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import ItemsList from "../components/ItemsList/ItemsList";
 
-export default function Items() {
+export default function Items({ searchParams }) {
+  const { search } = searchParams;
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  /*
   const JSON = {
     author: {
       name: "Ignacio",
@@ -59,12 +67,26 @@ export default function Items() {
       },
     ],
   };
+  */
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(`http://localhost:3001/api/items?q=${search}&limit=4`).then((response) =>
+      response.json().then((data) => setData(data))
+    );
+  }, []);
 
   return (
     <section>
-      <h1>Lo que se ingreso por el input - No visible</h1>
-      <Breadcrumb />
-      <ItemsList itemsList={JSON.items} />
+      {loading ? (
+        <h1>CARGANDO</h1>
+      ) : (
+        <>
+          <h1>Lo que se ingreso por el input - No visible</h1>
+          <Breadcrumb />
+          <ItemsList itemsList={data.items} />
+        </>
+      )}
     </section>
   );
 }

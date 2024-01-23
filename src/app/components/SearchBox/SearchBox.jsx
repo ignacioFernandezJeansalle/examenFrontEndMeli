@@ -18,6 +18,7 @@ export default function SearchBox() {
         maxLength="120"
         spellCheck="false"
         autoComplete="off"
+        required
       />
       <button className="search-button" type="submit">
         <Image className="search-button-icon" src={searchIcon} alt="Icono de búsqueda" />
