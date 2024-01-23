@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Roboto_Flex } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import headerLogo from "../../public/Logo_ML.webp";
@@ -6,7 +6,7 @@ import headerLogo from "../../public/Logo_ML.webp";
 import SearchBox from "./components/SearchBox/SearchBox";
 import "./styles/globals.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+const robotoFlex = Roboto_Flex({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Mercado Libre Argentina - Envíos Gratis en el día",
@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body className={inter.className}>
+      <body className={robotoFlex.className}>
         <header className="header">
           <nav className="nav-container container">
             <Link className="nav-logo__container" href="/">

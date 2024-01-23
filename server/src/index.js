@@ -1,8 +1,11 @@
 const express = require("express");
-const itemsRouter = require("./routes/itemsRoutes");
+const cors = require("cors");
 
 const app = express();
+const itemsRouter = require("./routes/itemsRoutes");
 const PORT = 3001;
+
+app.use(cors());
 
 app.use("/api/items", itemsRouter);
 

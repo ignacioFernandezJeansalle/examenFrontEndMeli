@@ -5,12 +5,17 @@ const itemsService = require("../services/itemsService");
 /*****************/
 const getItemsByQuery = async (req, res) => {
   const query = req.query.q;
-  const PATH = `https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=4`;
+  const limit = req.query.limit;
+
+  const path =
+    limit && limit > 0
+      ? `https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=${limit}`
+      : `https://api.mercadolibre.com/sites/MLA/search?q=${query}`;
 
   //------------------------------------------
   // Consulta a la API de MercadoLibre x QUERY
   //------------------------------------------
-  const resQuery = await fetch(PATH);
+  const resQuery = await fetch(path);
   const dataQuery = await resQuery.json();
 
   //-------------------------------------
