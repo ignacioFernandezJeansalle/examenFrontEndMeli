@@ -44,7 +44,9 @@ $p-top-text: 32px;
       align-items: center;
       column-gap: 5px;
       padding-top: $p-top-text;
+      color: $font-color-mid;
       font-size: 24px;
+      font-weight: 400;
     }
 
     &-shipping {
@@ -54,9 +56,10 @@ $p-top-text: 32px;
     }
 
     &-title {
+      padding-top: 32px;
       font-size: 18px;
       font-weight: 400;
-      padding-top: 32px;
+      color: $font-color-mid;
       text-wrap: balance;
     }
   }
@@ -66,6 +69,6 @@ $p-top-text: 32px;
     padding-top: $p-top-text;
     margin-left: auto;
     min-width: 150px;
-    color: $font-color-min;
+    color: $font-color-mid;
   }
 }

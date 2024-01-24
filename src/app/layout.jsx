@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
             <SearchBox />
           </nav>
         </header>
-        <main className="container">{children}</main>
+        <main className="main__container container">{children}</main>
       </body>
     </html>
   );

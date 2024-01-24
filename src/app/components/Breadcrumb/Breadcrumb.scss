@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 $gap-value: 6px;
 
 .breadcrumb {
@@ -16,13 +18,15 @@ $gap-value: 6px;
     display: flex;
     column-gap: $gap-value;
     align-items: center;
+    color: $font-color-mid;
 
     &-value {
       font-size: 14px;
     }
 
     &-separator {
-      width: 14px;
+      stroke-width: 1.5;
+      width: 16px;
       height: auto;
     }
   }

@@ -31,7 +31,7 @@ export default function ItemList({ item }) {
         </div>
         <h2 className="items-list-item__details-title">{item.title}</h2>
       </div>
-      <p className="items-list-item__condition">{condition}</p>
+      <div className="items-list-item__condition">{condition}</div>
     </li>
   );
 }

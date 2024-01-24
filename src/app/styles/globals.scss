@@ -9,6 +9,7 @@
 body {
   background: $bg-color-body;
   color: $font-color-max;
+  color: red;
 }
 
 :is(form input, form button):focus {
@@ -23,7 +24,7 @@ form input {
 .container {
   max-width: $max-width-xl;
   margin: 0 auto;
-  padding-inline: calc($max-width-xl/12);
+  padding-inline: 32px;
 }
 
 .visually-hidden {
@@ -55,4 +56,8 @@ form input {
       height: 40px;
     }
   }
+}
+
+.main__container {
+  margin-bottom: 150px;
 }
