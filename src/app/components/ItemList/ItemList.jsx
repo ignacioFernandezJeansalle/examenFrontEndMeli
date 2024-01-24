@@ -1,14 +1,13 @@
+import { usePrice } from "../../customHooks/usePrice";
+import { useCondition } from "../../customHooks/useCondition";
 import Link from "next/link";
 import Image from "next/image";
 import ShippingIcon from "../../assets/icons/ShippingIcon.webp";
 import "./ItemList.scss";
 
 export default function ItemList({ item }) {
-  const amount = Intl.NumberFormat("es-AR").format(item.price.amount);
-  const currency = item.price.currency === "USD" ? "U$S" : "$";
-  let condition = "";
-  if (item.condition === "new") condition = "Nuevo";
-  if (item.condition === "used") condition = "Usado";
+  const { currency, amount } = usePrice(item.price);
+  const { condition } = useCondition(item.condition);
 
   return (
     <li key={item.id} className="items-list-item__container">
@@ -22,11 +21,13 @@ export default function ItemList({ item }) {
           <span>{currency}</span>
           <span>{amount}</span>
           {item.free_shipping && (
-            <Image
-              className="items-list-item__details-shipping"
-              src={ShippingIcon}
-              alt="Icono de aviso de entrega gratuita"
-            />
+            <span>
+              <Image
+                className="items-list-item__details-shipping"
+                src={ShippingIcon}
+                alt="Icono de aviso de entrega gratuita"
+              />
+            </span>
           )}
         </div>
         <h2 className="items-list-item__details-title">{item.title}</h2>

@@ -12,7 +12,7 @@ const getAuthor = () => {
 //-----------------------------------------------------------------------------
 const getAmountDecimals = (price) => {
   const amount = Math.trunc(price);
-  const decimals = price - amount;
+  const decimals = Math.trunc((price - amount) * 100);
   return { amount, decimals };
 };
 

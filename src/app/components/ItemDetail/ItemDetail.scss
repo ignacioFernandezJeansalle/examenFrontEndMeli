@@ -2,23 +2,28 @@
 
 .item-detail {
   &__container {
+    display: flex;
+    column-gap: 32px;
     background: #fff;
     padding: 32px;
-    border-radius: 25px;
+    border-radius: 2px;
+    box-shadow: $box-shadow;
   }
 
-  &__details-container {
+  &__col {
     display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   &__picture {
-    &-container {
+    &--container {
       min-width: 680px;
       display: grid;
       place-items: center;
     }
 
-    &-image {
+    &--image {
       display: block;
       max-width: 680px;
       max-height: auto;
@@ -29,46 +34,69 @@
     }
   }
 
-  &__right {
-    &-container {
-      display: flex;
-      flex-direction: column;
-      padding-left: 16px;
-    }
-
-    &-condition {
-      font-size: 14px;
-      color: $font-color-mid;
-    }
-
-    &-title {
-      padding-top: 16px;
-      color: $font-color-max;
-    }
-
-    &-price {
-      font-size: 46px;
-      padding-block: 32px;
-    }
-  }
-
   &__description {
-    &-container {
-      width: 680px;
-    }
-
-    &-title {
+    &--title {
       padding-top: 32px;
       font-size: 28px;
       font-weight: 600;
       color: $font-color-max;
     }
 
-    &-description {
+    &--text {
       padding-top: 32px;
       font-size: 16px;
       line-height: 1.35;
       color: $font-color-mid;
     }
+  }
+
+  &__condition {
+    padding-top: 32px;
+    font-size: 14px;
+    color: $font-color-mid;
+  }
+
+  &__title {
+    padding-top: 16px;
+    color: $font-color-max;
+  }
+
+  &__price {
+    display: flex;
+    font-size: 46px;
+    padding-block: 32px;
+    color: $font-color-max;
+
+    &--currency {
+      padding-right: 4px;
+    }
+
+    &--amount {
+      padding-right: 2px;
+    }
+
+    &--decimals {
+      padding-right: 16px;
+      padding-top: 4px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    &--shipping-icon {
+      display: block;
+      padding-top: 10px;
+      width: 24px;
+      height: auto;
+    }
+  }
+
+  &__button {
+    border: none;
+    background: $btn-bg-color;
+    border-radius: 4px;
+    height: 48px;
+    font-size: 18px;
+    color: #eeeeee;
+    cursor: pointer;
   }
 }

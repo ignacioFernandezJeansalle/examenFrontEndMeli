@@ -2,8 +2,9 @@ import { Roboto_Flex } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import headerLogo from "../../public/Logo_ML.webp";
-import SearchBox from "./components/SearchBox/SearchBox";
 import "./styles/globals.scss";
+import "./styles/layout.scss";
+import SearchBox from "./components/SearchBox/SearchBox";
 
 const robotoFlex = Roboto_Flex({
   subsets: ["latin"],

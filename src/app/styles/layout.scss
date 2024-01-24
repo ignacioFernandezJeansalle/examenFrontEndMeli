@@ -1,0 +1,25 @@
+@import "./variables";
+
+.header {
+  background: $color-primary;
+
+  &__nav {
+    &-container {
+      padding-block: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 24px;
+    }
+
+    &-image {
+      display: block;
+      width: auto;
+      height: 40px;
+    }
+  }
+}
+
+.main__container {
+  margin-bottom: 150px;
+}

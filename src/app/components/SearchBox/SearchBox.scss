@@ -1,13 +1,14 @@
+@import "../../styles/variables";
+
 $form-height: 40px;
 $border-radius: 2px;
 
 .form-search {
   display: flex;
-  //column-gap: 1px;
-  //background: #fff;
   align-items: center;
   flex-grow: 1;
   height: $form-height;
+  box-shadow: $box-shadow;
 
   &__label {
     display: none;
@@ -16,7 +17,8 @@ $border-radius: 2px;
   &__input {
     font-size: 18px;
     font-weight: 200;
-    padding: 10px 14px;
+    height: $form-height;
+    padding: 5px 14px;
     border: none;
     width: 100%;
     border-radius: $border-radius 0px 0px $border-radius;
@@ -24,6 +26,7 @@ $border-radius: 2px;
 
   &__button {
     border: none;
+
     border-radius: 0px $border-radius $border-radius 0px;
     width: $form-height;
     height: $form-height;
