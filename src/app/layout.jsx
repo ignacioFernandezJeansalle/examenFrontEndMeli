@@ -22,14 +22,14 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body className={robotoFlex.className}>
         <header className="header">
-          <nav className="header__nav-container container">
-            <Link className="header__nav-logo" href="/">
-              <Image className="header__nav-image" src={headerLogo} alt="Logo Mercado Libre" />
+          <nav className="header__nav--container container">
+            <Link className="header__nav--logo" href="/">
+              <Image className="header__nav--image" src={headerLogo} alt="Logo Mercado Libre" />
             </Link>
             <SearchBox />
           </nav>
         </header>
-        <main className="main__container container">{children}</main>
+        <main className="main--container container">{children}</main>
       </body>
     </html>
   );

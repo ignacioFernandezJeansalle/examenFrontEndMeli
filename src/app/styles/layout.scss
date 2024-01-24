@@ -4,7 +4,7 @@
   background: $color-primary;
 
   &__nav {
-    &-container {
+    &--container {
       padding-block: 8px 12px;
       display: flex;
       justify-content: space-between;
@@ -12,7 +12,7 @@
       column-gap: 24px;
     }
 
-    &-image {
+    &--image {
       display: block;
       width: auto;
       height: 40px;
@@ -20,6 +20,6 @@
   }
 }
 
-.main__container {
+.main--container {
   margin-bottom: 150px;
 }

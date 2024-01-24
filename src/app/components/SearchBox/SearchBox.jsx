@@ -20,7 +20,7 @@ export default function SearchBox() {
         required
       />
       <button className="form-search__button" type="submit">
-        <Image className="form-search__button-icon" src={searchIcon} alt="Icono de búsqueda" />
+        <Image className="form-search__button--icon" src={searchIcon} alt="Icono de búsqueda" />
       </button>
     </form>
   );

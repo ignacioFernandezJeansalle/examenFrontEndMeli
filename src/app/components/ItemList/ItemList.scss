@@ -2,18 +2,18 @@
 
 $p-top-text: 32px;
 
-.items-list-item {
-  &__container {
+.items-list__item {
+  &--container {
     display: flex;
     width: 100%;
     background: #fff;
   }
 
-  &__link {
+  &--link {
     text-decoration: none;
   }
 
-  &__thumbnail {
+  &--thumbnail {
     &-container {
       min-width: 180px;
       min-height: 180px;
@@ -30,7 +30,7 @@ $p-top-text: 32px;
     border-radius: 4px;
   }
 
-  &__details {
+  &--details {
     &-container {
       display: flex;
       flex-direction: column;
@@ -63,7 +63,7 @@ $p-top-text: 32px;
     }
   }
 
-  &__condition {
+  &--condition {
     font-size: 12px;
     padding-top: $p-top-text;
     margin-left: auto;

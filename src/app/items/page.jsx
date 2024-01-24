@@ -15,7 +15,7 @@ export default function Items({ searchParams }) {
         <Loading />
       ) : (
         <>
-          <h1 className="visually-hidden">{search}</h1>
+          <h1 className="visually--hidden">{search}</h1>
           <Breadcrumb categories={data.categories} />
           <ItemsListContainer itemsList={data.items} />
         </>

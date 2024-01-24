@@ -15,6 +15,7 @@ export default function ItemById({ params }) {
         <Loading />
       ) : (
         <>
+          <h1 className="visually--hidden">{data.item.title}</h1>
           <Breadcrumb categories={data.categories} />
           <ItemDetail item={data.item} />
         </>

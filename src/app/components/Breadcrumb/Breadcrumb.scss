@@ -10,21 +10,23 @@ $gap-value: 6px;
     list-style: none;
   }
 
-  &__container > li:last-child > .breadcrumb__category-separator {
+  &__container > li:last-child > .breadcrumb__category--separator {
     display: none;
   }
 
   &__category {
-    display: flex;
-    column-gap: $gap-value;
-    align-items: center;
-    color: $font-color-mid;
+    &--container {
+      display: flex;
+      column-gap: $gap-value;
+      align-items: center;
+      color: $font-color-mid;
+    }
 
-    &-value {
+    &--value {
       font-size: 14px;
     }
 
-    &-separator {
+    &--separator {
       stroke-width: 1.5;
       width: 16px;
       height: auto;

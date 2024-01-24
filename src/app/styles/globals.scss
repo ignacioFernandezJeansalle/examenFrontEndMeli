@@ -9,7 +9,6 @@
 body {
   background: $bg-color-body;
   color: $font-color-max;
-  color: red;
 }
 
 :is(form input, form button):focus {
@@ -28,7 +27,7 @@ form input {
   padding-inline: calc($max-width-xl/26);
 }
 
-.visually-hidden {
+.visually--hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -37,8 +36,4 @@ form input {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-}
-
-.pt-32 {
-  padding-top: 32px;
 }
