@@ -70,7 +70,17 @@ const getItemById = async (req, res) => {
   //------------------------------
   const dataItem = itemsService.getItem(dataQueryById, dataQueryDescById);
 
-  res.json({ ...author, item: dataItem });
+  //----------------------------------------------
+  // Consulta a la API de MercadoLibre x Categoría
+  //----------------------------------------------
+  const { category_id } = dataQueryById;
+  const resCategoryId = await fetch(`https://api.mercadolibre.com/categories/${category_id}`);
+  const dataCategoryId = await resCategoryId.json();
+
+  // Recorro la ruta de categorías y armo un array de categorías
+  const categories = itemsService.getCategories(dataCategoryId);
+
+  res.json({ ...author, categories: categories, item: dataItem });
 };
 
 module.exports = {
