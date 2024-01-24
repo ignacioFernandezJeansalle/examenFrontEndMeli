@@ -18,7 +18,7 @@ export default function ItemDetail({ item }) {
         <p className="item-detail__description--text">{item.description}</p>
       </div>
       <div className="item-detail__col">
-        <span className="item-detail__condition">{condition} - 100 vendidos</span>
+        <span className="item-detail__condition">{condition}</span>
         <h1 className="item-detail__title">{item.title}</h1>
         <div className="item-detail__price">
           <span className="item-detail__price--currency">{currency}</span>

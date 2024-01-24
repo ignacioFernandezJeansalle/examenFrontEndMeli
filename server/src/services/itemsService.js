@@ -58,7 +58,8 @@ const getItems = (dataItems) => {
 // Función que arma el objeto item conforme especificación
 //--------------------------------------------------------
 const getItem = (dataItem, dataItemDesc) => {
-  const { id, title, currency_id: currency, price, thumbnail: picture, condition } = dataItem;
+  const { id, title, currency_id: currency, price, condition } = dataItem;
+  const picture = dataItem.pictures[0].url;
   const free_shipping = dataItem.shipping.free_shipping;
 
   const { amount, decimals } = getAmountDecimals(price);
