@@ -1,10 +1,12 @@
 @import "../../styles/variables";
 
+$picture-dimension: 620px;
+
 .item-detail {
   &__container {
     display: flex;
-    column-gap: 32px;
     background: #fff;
+    column-gap: 32px;
     padding: 32px;
     border-radius: 2px;
     box-shadow: $box-shadow;
@@ -18,16 +20,16 @@
 
   &__picture {
     &--container {
-      min-width: 680px;
-      min-height: 680px;
+      min-width: $picture-dimension;
+      min-height: $picture-dimension;
       display: grid;
       place-items: center;
     }
 
     &--image {
       display: block;
-      max-width: 680px;
-      max-height: 680px;
+      max-width: $picture-dimension;
+      max-height: $picture-dimension;
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -59,6 +61,7 @@
   &__title {
     padding-top: 16px;
     color: $font-color-max;
+    text-wrap: balance;
   }
 
   &__price {
@@ -76,17 +79,11 @@
     }
 
     &--decimals {
+      display: none;
       padding-right: 16px;
       padding-top: 4px;
       font-size: 24px;
       font-weight: 500;
-    }
-
-    &--shipping-icon {
-      display: block;
-      padding-top: 10px;
-      width: 24px;
-      height: auto;
     }
   }
 

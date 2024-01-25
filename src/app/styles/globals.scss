@@ -24,7 +24,7 @@ form input {
 .container {
   max-width: $max-width-xl;
   margin: 0 auto;
-  padding-inline: calc($max-width-xl/26);
+  padding-inline: calc($max-width-xl/12);
 }
 
 .visually--hidden {

@@ -18,21 +18,20 @@ export default function ItemDetail({ item }) {
         <p className="item-detail__description--text">{item.description}</p>
       </div>
       <div className="item-detail__col">
-        <span className="item-detail__condition">{condition}</span>
+        <span className="item-detail__condition">
+          {condition}
+          {item.free_shipping && (
+            <span>
+              {" "}
+              | <strong>Envío gratis</strong>
+            </span>
+          )}
+        </span>
         <h1 className="item-detail__title">{item.title}</h1>
         <div className="item-detail__price">
           <span className="item-detail__price--currency">{currency}</span>
           <span className="item-detail__price--amount"> {amount}</span>
-          <span className="item-detail__price--decimals"> {decimals}</span>
-          {item.free_shipping && (
-            <span>
-              <Image
-                className="item-detail__price--shipping-icon"
-                src={ShippingIcon}
-                alt="Icono de aviso de entrega gratuita"
-              />
-            </span>
-          )}
+          <span className="item-detail__price--decimals">{decimals}</span>
         </div>
         <button className="item-detail__button">Comprar</button>
       </div>
