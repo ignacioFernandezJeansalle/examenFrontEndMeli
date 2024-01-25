@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-$p-top-text: 32px;
+$p-top-text: 40px;
 
 .items-list__item {
   &--container {
@@ -34,40 +34,45 @@ $p-top-text: 32px;
     &-container {
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
+      width: 388px;
     }
 
     &-price {
       display: flex;
       justify-content: flex-start;
-      align-items: center;
       column-gap: 5px;
       padding-top: $p-top-text;
-      color: $font-color-mid;
+      color: $font-color-max;
       font-size: 24px;
-      font-weight: 400;
+      font-weight: 500;
+      line-height: 0.7;
     }
 
     &-shipping {
       padding-left: 4px;
       width: auto;
-      height: 18px;
+      height: 16px;
     }
 
     &-title {
       padding-top: 32px;
       font-size: 18px;
-      font-weight: 400;
-      color: $font-color-mid;
-      text-wrap: balance;
+      font-weight: 500;
+      color: $font-color-max;
     }
   }
 
   &--condition {
+    display: flex;
+    flex-direction: column;
     font-size: 12px;
-    padding-top: $p-top-text;
+    padding-top: 48px;
     margin-left: auto;
     min-width: 200px;
     color: $font-color-mid;
+
+    span {
+      line-height: 0.7;
+    }
   }
 }

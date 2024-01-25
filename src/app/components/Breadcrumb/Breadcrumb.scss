@@ -8,10 +8,16 @@ $gap-value: 6px;
     column-gap: $gap-value;
     margin-block: 16px;
     list-style: none;
-  }
 
-  &__container > li:last-child > .breadcrumb__category--separator {
-    display: none;
+    & li:last-child {
+      & .breadcrumb__category--value {
+        font-weight: 700;
+      }
+
+      & .breadcrumb__category--separator {
+        display: none;
+      }
+    }
   }
 
   &__category {

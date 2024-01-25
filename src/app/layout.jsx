@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         <header className="header">
           <nav className="header__nav--container screen--xl">
             <Link className="header__nav--logo" href="/">
-              <Image className="header__nav--image" src={headerLogo} alt="Logo Mercado Libre" />
+              <Image className="header__nav--image" src={headerLogo} alt="Logo Mercado Libre" priority />
             </Link>
             <SearchBox />
           </nav>

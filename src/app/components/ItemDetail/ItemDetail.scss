@@ -1,12 +1,14 @@
 @import "../../styles/variables";
 
-$picture-dimension: 680px;
+$picture-dimension: 648px;
+$picture-width: 648px;
+$picture-height: 548px;
 
 .item-detail {
   &__container {
     display: flex;
     background: #fff;
-    column-gap: 16px;
+    column-gap: 20px;
     padding: 32px;
     border-radius: 2px;
     box-shadow: $box-shadow;
@@ -20,16 +22,16 @@ $picture-dimension: 680px;
 
   &__picture {
     &--container {
-      min-width: $picture-dimension;
-      min-height: $picture-dimension;
+      min-width: $picture-width;
+      min-height: $picture-height;
       display: grid;
       place-items: center;
     }
 
     &--image {
       display: block;
-      max-width: $picture-dimension;
-      max-height: $picture-dimension;
+      max-width: $picture-width;
+      max-height: $picture-height;
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -38,7 +40,7 @@ $picture-dimension: 680px;
 
   &__description {
     &--title {
-      padding-top: 32px;
+      padding-top: 144px;
       font-size: 28px;
       font-weight: 600;
       color: $font-color-max;
@@ -53,7 +55,6 @@ $picture-dimension: 680px;
   }
 
   &__condition {
-    padding-top: 32px;
     font-size: 14px;
     color: $font-color-mid;
   }
@@ -70,6 +71,10 @@ $picture-dimension: 680px;
     padding-block: 32px;
     color: $font-color-max;
 
+    &--reduce {
+      font-size: 42px;
+    }
+
     &--currency {
       padding-right: 4px;
     }
@@ -79,8 +84,6 @@ $picture-dimension: 680px;
     }
 
     &--decimals {
-      display: none;
-      padding-right: 16px;
       padding-top: 4px;
       font-size: 24px;
       font-weight: 500;

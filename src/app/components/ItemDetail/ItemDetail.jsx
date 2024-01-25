@@ -7,6 +7,13 @@ export default function ItemDetail({ item }) {
   const { currency, amount, decimals } = usePrice(item.price);
   const { condition } = useCondition(item.condition);
 
+  const renderDecimals = currency === "$" && item.price.amount < 100000;
+
+  let reduceAmountFont = "";
+  if ((currency === "$" && item.price.amount >= 10000000) || (currency !== "$" && item.price.amount >= 100000)) {
+    reduceAmountFont = "item-detail__price--reduce";
+  }
+
   return (
     <div className="item-detail__container">
       <div className="item-detail__col">
@@ -34,10 +41,10 @@ export default function ItemDetail({ item }) {
           )}
         </span>
         <h1 className="item-detail__title">{item.title}</h1>
-        <div className="item-detail__price">
+        <div className={`item-detail__price ${reduceAmountFont}`}>
           <span className="item-detail__price--currency">{currency}</span>
           <span className="item-detail__price--amount"> {amount}</span>
-          <span className="item-detail__price--decimals">{decimals}</span>
+          {renderDecimals && <span className="item-detail__price--decimals">{decimals}</span>}
         </div>
         <button className="item-detail__button">Comprar</button>
       </div>

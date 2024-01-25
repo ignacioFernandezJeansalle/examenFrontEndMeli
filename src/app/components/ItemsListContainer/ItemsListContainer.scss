@@ -11,13 +11,14 @@ $border-radius-results: 4px;
 
   li {
     border-bottom: 1px solid #eeeeee;
-  }
-  li:first-child {
-    border-radius: $border-radius-results $border-radius-results 0px 0px;
-  }
 
-  li:last-child {
-    border-radius: 0px 0px $border-radius-results $border-radius-results;
-    border-bottom: none;
+    &:first-child {
+      border-radius: $border-radius-results $border-radius-results 0px 0px;
+    }
+
+    &:last-child {
+      border-radius: 0px 0px $border-radius-results $border-radius-results;
+      border-bottom: none;
+    }
   }
 }

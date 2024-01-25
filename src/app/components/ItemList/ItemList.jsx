@@ -13,7 +13,14 @@ export default function ItemList({ item }) {
     <li key={item.id} className="items-list__item--container">
       <Link className="items-list__item--link" href={`/items/${item.id}`}>
         <div className="items-list__item--thumbnail-container">
-          <Image className="items-list__item--thumbnail" src={item.picture} width={180} height={180} alt={item.title} />
+          <Image
+            className="items-list__item--thumbnail"
+            src={item.picture}
+            width={180}
+            height={180}
+            alt={item.title}
+            priority
+          />
         </div>
       </Link>
       <div className="items-list__item--details-container">
@@ -34,7 +41,9 @@ export default function ItemList({ item }) {
           <h2 className="items-list__item--details-title">{item.title}</h2>
         </Link>
       </div>
-      <div className="items-list__item--condition">{condition}</div>
+      <div className="items-list__item--condition">
+        <span>{condition}</span>
+      </div>
     </li>
   );
 }
