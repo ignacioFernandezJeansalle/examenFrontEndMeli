@@ -7,8 +7,22 @@
 }
 
 body {
-  background: $bg-color-body;
+  background: $color-body;
   color: $font-color-max;
+}
+
+form {
+  input {
+    font-family: $form-font-family;
+    font-style: $form-font-style;
+    font-weight: $form-font-weight;
+    letter-spacing: $form-letter-spacing;
+    color: $form-color;
+
+    &::placeholder {
+      font-weight: $form-placeholder-font-weight;
+    }
+  }
 }
 
 :is(form input, form button):focus {
@@ -16,15 +30,14 @@ body {
   z-index: 10;
 }
 
-form input {
-  color: $form-input-color;
-  font-family: var(--font-roboto-mono);
+button {
+  font-family: $font-family;
 }
 
-.container {
-  max-width: $max-width-xl;
-  margin: 0 auto;
-  padding-inline: calc($max-width-xl/12);
+.screen--xl {
+  max-width: $screen-xl-max-width;
+  padding-inline: $screen-xl-padding-inline;
+  margin: $screen-xl-margin;
 }
 
 .visually--hidden {
@@ -36,4 +49,28 @@ form input {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.header {
+  background: $color-primary;
+
+  &__nav {
+    &--container {
+      padding-block: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 24px;
+    }
+
+    &--image {
+      display: block;
+      width: auto;
+      height: 40px;
+    }
+  }
+}
+
+.main--container {
+  margin-bottom: 150px;
 }

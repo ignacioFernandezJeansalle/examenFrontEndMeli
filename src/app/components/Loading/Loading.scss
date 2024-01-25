@@ -1,5 +1,7 @@
 @import "../../styles/variables";
 
+$color-loading: #666666;
+
 .loading {
   &__container {
     width: 100%;
@@ -13,7 +15,7 @@
     width: 50px;
     height: 50px;
     border: 2px solid;
-    border-color: $loading-color transparent $loading-color transparent;
+    border-color: $color-loading transparent;
     border-radius: 50%;
     animation: spin-anim 1s linear infinite;
   }

@@ -1,12 +1,12 @@
 @import "../../styles/variables";
 
-$picture-dimension: 620px;
+$picture-dimension: 680px;
 
 .item-detail {
   &__container {
     display: flex;
     background: #fff;
-    column-gap: 32px;
+    column-gap: 16px;
     padding: 32px;
     border-radius: 2px;
     box-shadow: $box-shadow;
@@ -89,7 +89,7 @@ $picture-dimension: 620px;
 
   &__button {
     border: none;
-    background: $btn-bg-color;
+    background: $button-bg-color;
     border-radius: 4px;
     height: 48px;
     font-size: 18px;

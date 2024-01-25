@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import headerLogo from "../../public/Logo_ML.webp";
 import "./styles/globals.scss";
-import "./styles/layout.scss";
 import SearchBox from "./components/SearchBox/SearchBox";
 
 const robotoFlex = Roboto_Flex({
@@ -22,14 +21,14 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body className={robotoFlex.className}>
         <header className="header">
-          <nav className="header__nav--container container">
+          <nav className="header__nav--container screen--xl">
             <Link className="header__nav--logo" href="/">
               <Image className="header__nav--image" src={headerLogo} alt="Logo Mercado Libre" />
             </Link>
             <SearchBox />
           </nav>
         </header>
-        <main className="main--container container">{children}</main>
+        <main className="main--container screen--xl">{children}</main>
       </body>
     </html>
   );

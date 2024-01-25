@@ -1,7 +1,6 @@
 import { usePrice } from "../../customHooks/usePrice";
 import { useCondition } from "../../customHooks/useCondition";
 import Image from "next/image";
-import ShippingIcon from "../../assets/icons/ShippingIcon.webp";
 import "./ItemDetail.scss";
 
 export default function ItemDetail({ item }) {
@@ -12,7 +11,14 @@ export default function ItemDetail({ item }) {
     <div className="item-detail__container">
       <div className="item-detail__col">
         <div className="item-detail__picture--container">
-          <Image className="item-detail__picture--image" src={item.picture} alt={item.title} width={300} height={300} />
+          <Image
+            className="item-detail__picture--image"
+            src={item.picture}
+            alt={item.title}
+            width={300}
+            height={300}
+            priority={true}
+          />
         </div>
         <h2 className="item-detail__description--title">Descripción del producto</h2>
         <p className="item-detail__description--text">{item.description}</p>
