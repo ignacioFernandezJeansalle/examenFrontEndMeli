@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+
+.error-message {
+  margin-top: 32px;
+  padding: 16px 32px;
+  background: #999999;
+  color: $font-color-max;
+  text-wrap: balance;
+  text-align: center;
+  border-radius: 4px;
+}

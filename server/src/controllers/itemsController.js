@@ -7,38 +7,42 @@ const getItemsByQuery = async (req, res) => {
   const query = req.query.q;
   const limit = req.query.limit;
 
-  const path =
-    limit && limit > 0
-      ? `https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=${limit}`
-      : `https://api.mercadolibre.com/sites/MLA/search?q=${query}`;
+  if (query !== "") {
+    const path =
+      limit && limit > 0
+        ? `https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=${limit}`
+        : `https://api.mercadolibre.com/sites/MLA/search?q=${query}`;
 
-  //------------------------------------------
-  // Consulta a la API de MercadoLibre x QUERY
-  //------------------------------------------
-  const resQuery = await fetch(path);
-  const dataQuery = await resQuery.json();
+    //------------------------------------------
+    // Consulta a la API de MercadoLibre x QUERY
+    //------------------------------------------
+    const resQuery = await fetch(path);
+    const dataQuery = await resQuery.json();
 
-  //-------------------------------------
-  // Inicio respuesta con firma del autor
-  //-------------------------------------
-  const author = itemsService.getAuthor();
+    //-------------------------------------
+    // Inicio respuesta con firma del autor
+    //-------------------------------------
+    const author = itemsService.getAuthor();
 
-  //-------------------------------------------------------------------
-  // Consulta a la API de MercadoLibre x Categoría del primer resultado
-  //-------------------------------------------------------------------
-  const categoryId = dataQuery.results[0].category_id;
-  const resCategoryId = await fetch(`https://api.mercadolibre.com/categories/${categoryId}`);
-  const dataCategoryId = await resCategoryId.json();
+    //-------------------------------------------------------------------
+    // Consulta a la API de MercadoLibre x Categoría del primer resultado
+    //-------------------------------------------------------------------
+    const categoryId = dataQuery.results[0].category_id;
+    const resCategoryId = await fetch(`https://api.mercadolibre.com/categories/${categoryId}`);
+    const dataCategoryId = await resCategoryId.json();
 
-  // Recorro la ruta de categorías y armo un array de categorías
-  const categories = itemsService.getCategories(dataCategoryId);
+    // Recorro la ruta de categorías y armo un array de categorías
+    const categories = itemsService.getCategories(dataCategoryId);
 
-  //----------------------------------
-  // Obtengo los detalles de cada item
-  //----------------------------------
-  const dataItems = itemsService.getItems(dataQuery.results);
+    //----------------------------------
+    // Obtengo los detalles de cada item
+    //----------------------------------
+    const dataItems = itemsService.getItems(dataQuery.results);
 
-  res.json({ ...author, categories: categories, items: dataItems });
+    res.json({ ...author, categories: categories, items: dataItems });
+  } else {
+    res.status(404).send("Not Found");
+  }
 };
 
 /**************/
@@ -52,35 +56,40 @@ const getItemById = async (req, res) => {
   // Consulta a la API de MercadoLibre x Id
   //---------------------------------------
   const resQueryById = await fetch(PATH);
-  const dataQueryById = await resQueryById.json();
 
-  //-----------------------------------------------------
-  // Consulta a la API de MercadoLibre x Descricpión x Id
-  //-----------------------------------------------------
-  const resQueryDescById = await fetch(`${PATH}/description`);
-  const dataQueryDescById = await resQueryDescById.json();
+  if (resQueryById.status === 200) {
+    const dataQueryById = await resQueryById.json();
 
-  //-------------------------------------
-  // Inicio respuesta con firma del autor
-  //-------------------------------------
-  const author = itemsService.getAuthor();
+    //-----------------------------------------------------
+    // Consulta a la API de MercadoLibre x Descricpión x Id
+    //-----------------------------------------------------
+    const resQueryDescById = await fetch(`${PATH}/description`);
+    const dataQueryDescById = await resQueryDescById.json();
 
-  //------------------------------
-  // Obtengo los detalles del item
-  //------------------------------
-  const dataItem = itemsService.getItem(dataQueryById, dataQueryDescById);
+    //-------------------------------------
+    // Inicio respuesta con firma del autor
+    //-------------------------------------
+    const author = itemsService.getAuthor();
 
-  //----------------------------------------------
-  // Consulta a la API de MercadoLibre x Categoría
-  //----------------------------------------------
-  const { category_id } = dataQueryById;
-  const resCategoryId = await fetch(`https://api.mercadolibre.com/categories/${category_id}`);
-  const dataCategoryId = await resCategoryId.json();
+    //------------------------------
+    // Obtengo los detalles del item
+    //------------------------------
+    const dataItem = itemsService.getItem(dataQueryById, dataQueryDescById);
 
-  // Recorro la ruta de categorías y armo un array de categorías
-  const categories = itemsService.getCategories(dataCategoryId);
+    //----------------------------------------------
+    // Consulta a la API de MercadoLibre x Categoría
+    //----------------------------------------------
+    const { category_id } = dataQueryById;
+    const resCategoryId = await fetch(`https://api.mercadolibre.com/categories/${category_id}`);
+    const dataCategoryId = await resCategoryId.json();
 
-  res.json({ ...author, categories: categories, item: dataItem });
+    // Recorro la ruta de categorías y armo un array de categorías
+    const categories = itemsService.getCategories(dataCategoryId);
+
+    res.json({ ...author, categories: categories, item: dataItem });
+  } else {
+    res.status(404).send("Not Found");
+  }
 };
 
 module.exports = {
