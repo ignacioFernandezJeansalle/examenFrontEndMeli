@@ -1,7 +1,8 @@
 import ItemsListContainer from "../components/ItemListContainer/ItemListContainer";
 
 export function generateMetadata({ searchParams }) {
-  const { search } = searchParams;
+  let search = searchParams.search;
+  if (search === undefined) search = "";
 
   return {
     title: `${search} | MercadoLibre 📦`,
