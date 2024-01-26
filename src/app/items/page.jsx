@@ -5,7 +5,7 @@ export function generateMetadata({ searchParams }) {
 
   return {
     title: `${search} | MercadoLibre 📦`,
-    description: `Envíos Gratis en el día ✓ Comprá ${search} en cuotas sin interés! Conocé nuestras increíbles ofertas y promociones en millones de productos.`,
+    description: `✓ Comprá ${search} - Conocé nuestras increíbles ofertas y promociones en millones de productos.`,
   };
 }
 
