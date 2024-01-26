@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./mixins";
 
 * {
   margin: 0;
@@ -56,11 +57,9 @@ button {
 
   &__nav {
     &--container {
-      padding-block: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include d-flex(row, space-between, center);
       column-gap: 24px;
+      padding-block: 12px;
     }
 
     &--image {

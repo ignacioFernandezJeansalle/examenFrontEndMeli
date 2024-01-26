@@ -1,23 +1,23 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
-$border-radius-results: 4px;
+$items-list-border-radius: 4px;
 
 .items-list__container {
-  display: flex;
-  flex-direction: column;
+  @include d-flex(column);
   list-style: none;
   box-shadow: $box-shadow;
-  border-radius: $border-radius-results;
+  border-radius: $items-list-border-radius;
 
   li {
     border-bottom: 1px solid #eeeeee;
 
     &:first-child {
-      border-radius: $border-radius-results $border-radius-results 0px 0px;
+      border-radius: $items-list-border-radius $items-list-border-radius 0px 0px;
     }
 
     &:last-child {
-      border-radius: 0px 0px $border-radius-results $border-radius-results;
+      border-radius: 0px 0px $items-list-border-radius $items-list-border-radius;
       border-bottom: none;
     }
   }

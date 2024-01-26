@@ -1,14 +1,15 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
-$form-height: 40px;
-$border-radius: 2px;
+$form-search-height: 40px;
+$form-search-border-radius: 2px;
 
 .form-search {
-  display: flex;
-  align-items: center;
+  @include d-flex(row, space-between, center);
   flex-grow: 1;
-  height: $form-height;
+  height: $form-search-height;
   box-shadow: $box-shadow;
+  border-radius: $form-search-border-radius;
 
   &__label {
     display: none;
@@ -16,23 +17,23 @@ $border-radius: 2px;
 
   &__input {
     font-size: 18px;
-    height: $form-height;
+    height: $form-search-height;
     padding: 5px 14px;
     border: none;
     width: 100%;
-    border-radius: $border-radius 0px 0px $border-radius;
+    border-radius: $form-search-border-radius 0px 0px $form-search-border-radius;
   }
 
   &__button {
     border: none;
 
-    border-radius: 0px $border-radius $border-radius 0px;
-    width: $form-height;
-    height: $form-height;
+    border-radius: 0px $form-search-border-radius $form-search-border-radius 0px;
+    width: $form-search-height;
+    height: $form-search-height;
 
     &--icon {
       display: block;
-      width: 20px;
+      width: calc($form-search-height/2);
       height: auto;
       margin: 0 auto;
     }

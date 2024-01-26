@@ -7,7 +7,7 @@ export default function Breadcrumb({ categories }) {
     <ol className="breadcrumb__container">
       {categories.map((category, index) => (
         <li key={index} className="breadcrumb__category--container">
-          <p className="breadcrumb__category--value">{category}</p>
+          <span className="breadcrumb__category--value">{category}</span>
           <ChevronRightIcon className="breadcrumb__category--separator" />
         </li>
       ))}

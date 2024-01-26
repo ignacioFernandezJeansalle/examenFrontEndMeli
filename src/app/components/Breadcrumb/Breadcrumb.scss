@@ -1,11 +1,12 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
-$gap-value: 6px;
+$breadcrumb-column-gap: 6px;
 
 .breadcrumb {
   &__container {
-    display: flex;
-    column-gap: $gap-value;
+    @include d-flex();
+    column-gap: $breadcrumb-column-gap;
     margin-block: 16px;
     list-style: none;
 
@@ -22,9 +23,8 @@ $gap-value: 6px;
 
   &__category {
     &--container {
-      display: flex;
-      column-gap: $gap-value;
-      align-items: center;
+      @include d-flex(row, flex-start, center);
+      column-gap: $breadcrumb-column-gap;
       color: $font-color-mid;
     }
 

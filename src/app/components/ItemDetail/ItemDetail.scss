@@ -1,37 +1,36 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
-$picture-dimension: 648px;
-$picture-width: 648px;
-$picture-height: 548px;
+$item-detail-picture-width: 648px;
+$item-detail-picture-height: 548px;
 
 .item-detail {
   &__container {
-    display: flex;
-    background: #fff;
+    @include d-flex();
     column-gap: 20px;
     padding: 32px;
-    border-radius: 2px;
+    background: #fff;
     box-shadow: $box-shadow;
+    border-radius: 2px;
   }
 
   &__col {
-    display: flex;
-    flex-direction: column;
+    @include d-flex(column);
     width: 100%;
   }
 
   &__picture {
     &--container {
-      min-width: $picture-width;
-      min-height: $picture-height;
       display: grid;
       place-items: center;
+      min-width: $item-detail-picture-width;
+      min-height: $item-detail-picture-height;
     }
 
     &--image {
       display: block;
-      max-width: $picture-width;
-      max-height: $picture-height;
+      max-width: $item-detail-picture-width;
+      max-height: $item-detail-picture-height;
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -66,7 +65,7 @@ $picture-height: 548px;
   }
 
   &__price {
-    display: flex;
+    @include d-flex();
     font-size: 46px;
     padding-block: 32px;
     color: $font-color-max;
