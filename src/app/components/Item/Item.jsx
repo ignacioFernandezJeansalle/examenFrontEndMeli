@@ -3,9 +3,9 @@ import { useCondition } from "../../customHooks/useCondition";
 import Link from "next/link";
 import Image from "next/image";
 import ShippingIcon from "../../assets/icons/ShippingIcon.webp";
-import "./ItemList.scss";
+import "./Item.scss";
 
-export default function ItemList({ item }) {
+export default function Item({ item }) {
   const { currency, amount } = usePrice(item.price);
   const { condition } = useCondition(item.condition);
 

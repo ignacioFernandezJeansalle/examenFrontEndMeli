@@ -1,25 +1,18 @@
-"use client";
+import ItemsListContainer from "../components/ItemListContainer/ItemListContainer";
 
-import { useFetch } from "../customHooks/useFetch";
-import Loading from "../components/Loading/Loading";
-import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
-import ItemsListContainer from "../components/ItemsListContainer/ItemsListContainer";
+export function generateMetadata({ searchParams }) {
+  const { search } = searchParams;
+
+  return {
+    title: `${search} | MercadoLibre 📦`,
+    description: `Envíos Gratis en el día ✓ Comprá ${search} en cuotas sin interés! Conocé nuestras increíbles ofertas y promociones en millones de productos.`,
+  };
+}
 
 export default function Items({ searchParams }) {
-  const { search } = searchParams;
-  const { data, loading } = useFetch(`http://localhost:3001/api/items?q=${search}&limit=4`);
-
   return (
     <section>
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          <h1 className="visually--hidden">{search}</h1>
-          <Breadcrumb categories={data.categories} />
-          <ItemsListContainer itemsList={data.items} />
-        </>
-      )}
+      <ItemsListContainer searchParams={searchParams} />
     </section>
   );
 }
